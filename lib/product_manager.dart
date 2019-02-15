@@ -1,62 +1,57 @@
 import 'package:flutter/material.dart';
 
 import './products.dart';
-import './product_controll.dart';
+import './product_control.dart';
 
-class ProductManeger extends StatefulWidget {
-  final Map<String,String> startingProduct;
+class ProductManager extends StatefulWidget {
+  final String startingProduct;
 
-  ProductManeger({this.startingProduct}) {
-    print('[Product_maneger  Widget] Constroctor');
+  ProductManager({this.startingProduct}) {
+    print('[ProductManager Widget] Constructor');
   }
 
   @override
   State<StatefulWidget> createState() {
-    print('[Product_maneger  Widget] createState()');
-    return _ProductManegerState();
+    print('[ProductManager Widget] createState()');
+    return _ProductManagerState();
   }
 }
 
-class _ProductManegerState extends State<ProductManeger> {
-  List<Map<String,String>> _products = [];
+class _ProductManagerState extends State<ProductManager> {
+  List<String> _products = [];
 
   @override
   void initState() {
-    print('[_ProductManegerState  State] initState()');
+    print('[ProductManager State] initState()');
     if (widget.startingProduct != null) {
       _products.add(widget.startingProduct);
     }
-
     super.initState();
   }
 
   @override
-  void didUpdateWidget(ProductManeger oldWidget) {
-    print('[_ProductManegerState  State] didUpdateWidget()');
+  void didUpdateWidget(ProductManager oldWidget) {
+    print('[ProductManager State] didUpdateWidget()');
     super.didUpdateWidget(oldWidget);
   }
 
-  void _addProduct(Map<String,String> product) {
+  void _addProduct(String product) {
     setState(() {
       _products.add(product);
     });
-    print('_addproduct');
-  }
-
-  void _deleProduct(int index){
-setState(() {
-  _products.removeAt(index);
-});
+    print(_products);
   }
 
   @override
   Widget build(BuildContext context) {
-    print('[_ProductManegerState  State] build()');
+    print('[ProductManager State] build()');
     return Column(
       children: [
         Container(
-            margin: EdgeInsets.all(10.0), child: ProductControll(_addProduct)),
-        Expanded(child: Products(_products, deleteProduct: _deleProduct))
+          margin: EdgeInsets.all(10.0),
+          child: ProductControl(_addProduct),
+        ),
+        Expanded(child: Products(_products))
       ],
     );
   }
