@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 
-import '../pruduct_manager.dart';
+import '../product_manager.dart';
 
 
 
