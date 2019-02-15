@@ -6,7 +6,7 @@ import './product_controll.dart';
 class ProductManeger extends StatefulWidget {
   final String startingProduct;
 
-  ProductManeger(this.startingProduct) {
+  ProductManeger({this.startingProduct}) {
     print('[Product_maneger  Widget] Constroctor');
   }
 
@@ -23,7 +23,10 @@ class _ProductManegerState extends State<ProductManeger> {
   @override
   void initState() {
     print('[_ProductManegerState  State] initState()');
-    _products.add(widget.startingProduct);
+    if (widget.startingProduct != null){
+      _products.add(widget.startingProduct);
+    }
+    
     super.initState();
   }
 
@@ -37,6 +40,7 @@ class _ProductManegerState extends State<ProductManeger> {
     setState(() {
       _products.add(product);
     });
+    print('_addproduct');
   }
 
   @override
@@ -45,10 +49,8 @@ class _ProductManegerState extends State<ProductManeger> {
     return Column(
       children: [
         Container(
-          margin: EdgeInsets.all(10.0), 
-          child: ProductControll(_addProduct)
-        ),
-        Products(_products)
+            margin: EdgeInsets.all(10.0), child: ProductControll(_addProduct)),
+        Expanded(child: Products(_products))
       ],
     );
   }
