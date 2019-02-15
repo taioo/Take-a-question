@@ -43,6 +43,12 @@ class _ProductManegerState extends State<ProductManeger> {
     print('_addproduct');
   }
 
+  void _deleProduct(int index){
+setState(() {
+  _products.removeAt(index);
+});
+  }
+
   @override
   Widget build(BuildContext context) {
     print('[_ProductManegerState  State] build()');
@@ -50,7 +56,7 @@ class _ProductManegerState extends State<ProductManeger> {
       children: [
         Container(
             margin: EdgeInsets.all(10.0), child: ProductControll(_addProduct)),
-        Expanded(child: Products(_products))
+        Expanded(child: Products(_products, deleteProduct: _deleProduct))
       ],
     );
   }
