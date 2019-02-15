@@ -24,6 +24,9 @@ class MyApp extends StatelessWidget {
           primarySwatch: Colors.red,
           accentColor: Colors.cyan[600]),
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> parent of 86df633... add login
+=======
 >>>>>>> parent of 86df633... add login
 =======
 >>>>>>> parent of 86df633... add login
