@@ -1,32 +1,38 @@
 import 'package:flutter/material.dart';
-
 import './pages/product.dart';
 
 class Products extends StatelessWidget {
-  final List<String> products;
+  final List<Map<String, String>> products;
+  final Function deleteProduct;
 
-  Products([this.products = const []]) {
-    print('[Products Widget] Constructor');
+  Products(this.products, {this.deleteProduct}) {
+    print('[Product Widget] Constructor');
   }
 
   Widget _buildProductItem(BuildContext context, int index) {
     return Card(
       child: Column(
         children: <Widget>[
-          Image.asset('assets/food.jpg'),
-          Text(products[index]),
+          Image.asset(products[index]['image']),
+          Text(products[index]['titel']),
           ButtonBar(
             alignment: MainAxisAlignment.center,
             children: <Widget>[
               FlatButton(
-                child: Text('Details'),
-                onPressed: () => Navigator.push(
+                child: Text('details'),
+                onPressed: () => Navigator.push<bool>(
                       context,
-                      MaterialPageRoute(
-                        builder: (BuildContext context) => ProductPage(),
-                      ),
-                    ),
-              )
+                      MaterialPageRoute(builder: (BuildContext context) {
+                        return ProductPage(
+                            products[index]['titel'], products[index]['image']);
+                      }),
+                    ).then((bool value){
+                      if (value){
+                        deleteProduct(index);
+                      }
+                      
+                    }),
+              ),
             ],
           )
         ],
@@ -34,22 +40,22 @@ class Products extends StatelessWidget {
     );
   }
 
-  Widget _buildProductList() {
-    Widget productCards;
+  Widget _startWidget() {
     if (products.length > 0) {
-      productCards = ListView.builder(
+      return ListView.builder(
         itemBuilder: _buildProductItem,
         itemCount: products.length,
       );
     } else {
-      productCards = Container();
+      return Center(
+        child: Text('plese add some products'),
+      );
     }
-    return productCards;
   }
 
   @override
   Widget build(BuildContext context) {
-    print('[Products Widget] build()');
-    return _buildProductList();
+    print('[Product Widget] build()');
+    return _startWidget();
   }
 }
