@@ -1,6 +1,13 @@
 import 'package:flutter/material.dart';
 
 class ProductPage extends StatelessWidget {
+
+  final String titel;
+  final String image;
+
+  const ProductPage( this.titel, this.image) ;
+
+
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
@@ -18,9 +25,9 @@ class ProductPage extends StatelessWidget {
             Container(
                 padding: EdgeInsets.all(10),
                 child: RaisedButton(
-                  child: Text('Back'),
+                  child: Text('Delete'),
                   onPressed: () {
-                    Navigator.pop(context);
+                    Navigator.pop(context, true);
                   },
                 ))
           ],
