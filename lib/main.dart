@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
+//import 'package:flutter/rendering.dart';
 
-import './pruduct_manager.dart';
+import './pages/home.dart';
 
 void main() {
   // debugPaintSizeEnabled = true;
@@ -20,12 +20,7 @@ class MyApp extends StatelessWidget {
           brightness: Brightness.light,
           primarySwatch: Colors.red,
           accentColor: Colors.cyan[600]),
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text('EasyList'),
-        ),
-        body: ProductManeger(),
-      ),
+      home: HomePage(),
     );
   }
 }
