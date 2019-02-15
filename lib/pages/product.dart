@@ -10,13 +10,19 @@ class ProductPage extends StatelessWidget {
         ),
         body: Column(
           children: <Widget>[
-            Center(child: Text('Details')),
-            RaisedButton(
-              child: Text('Back'),
-              onPressed: () {
-                Navigator.pop(context);
-              },
-            )
+            Image.asset('assets/sweets.jpeg'),
+            Container(
+              padding: EdgeInsets.all(10),
+              child: Text('product details'),
+            ),
+            Container(
+                padding: EdgeInsets.all(10),
+                child: RaisedButton(
+                  child: Text('Back'),
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                ))
           ],
         ));
   }
