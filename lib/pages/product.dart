@@ -47,8 +47,7 @@ class ProductPage extends StatelessWidget {
         appBar: AppBar(
           title: Text(title),
         ),
-        body: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
+        body: ListView(
           children: <Widget>[
             Image.asset(imageUrl),
             Container(

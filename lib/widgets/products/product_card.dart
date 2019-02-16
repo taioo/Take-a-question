@@ -30,18 +30,13 @@ class ProductCard extends StatelessWidget {
     return ButtonBar(
       alignment: MainAxisAlignment.center,
       children: <Widget>[
+        Text('Read question'),
         IconButton(
-          icon: Icon(Icons.info),
+          icon: Icon(Icons.keyboard_arrow_right),
           color: Theme.of(context).accentColor,
           onPressed: () => Navigator.pushNamed<bool>(
               context, '/product/' + productIndex.toString()),
         ),
-        IconButton(
-          icon: Icon(Icons.favorite_border),
-          color: Colors.red,
-          onPressed: () => Navigator.pushNamed<bool>(
-              context, '/product/' + productIndex.toString()),
-        )
       ],
     );
   }
@@ -53,7 +48,6 @@ class ProductCard extends StatelessWidget {
         children: <Widget>[
           Image.asset(product['image']),
           _buildTitlePriceRow(),
-          AddressTag('Union Square, San Francisco'),
           _buildActionButtons(context)
         ],
       ),
