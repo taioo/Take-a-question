@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:io';
 
 import 'package:flutter/material.dart';
 
@@ -6,11 +7,11 @@ import '../widgets/ui_elements/title_default.dart';
 
 class ProductPage extends StatelessWidget {
   final String title;
-  final String imageUrl;
+  final File image;
   final double price;
   final String description;
 
-  ProductPage(this.title, this.imageUrl, this.price, this.description);
+  ProductPage(this.title, this.image, this.price, this.description);
 
   Widget _buildAddressPriceRow() {
     return Row(
@@ -49,7 +50,7 @@ class ProductPage extends StatelessWidget {
         ),
         body: ListView(
           children: <Widget>[
-            Image.asset(imageUrl),
+            Image.file(image),
             Container(
               padding: EdgeInsets.all(10.0),
               child: TitleDefault(title),

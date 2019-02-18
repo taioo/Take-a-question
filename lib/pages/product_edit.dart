@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'dart:io';
 
 import '../widgets/helpers/ensure_visible.dart';
+import '../widgets/products/image.dart';
 
 class ProductEditPage extends StatefulWidget {
   final Function addProduct;
@@ -22,7 +24,7 @@ class _ProductEditPageState extends State<ProductEditPage> {
     'title': null,
     'description': null,
     'price': null,
-    'image': 'assets/food.jpg'
+    'image': null,
   };
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   final _titleFocusNode = FocusNode();
@@ -38,8 +40,8 @@ class _ProductEditPageState extends State<ProductEditPage> {
         initialValue: widget.product == null ? '' : widget.product['title'],
         validator: (String value) {
           // if (value.trim().length <= 0) {
-          if (value.isEmpty || value.length < 5) {
-            return 'Title is required and should be 5+ characters long.';
+          if (value.isEmpty || value.length < 4) {
+            return 'Title is required and should be 4+ characters long.';
           }
         },
         onSaved: (String value) {
@@ -60,8 +62,8 @@ class _ProductEditPageState extends State<ProductEditPage> {
             widget.product == null ? '' : widget.product['description'],
         validator: (String value) {
           // if (value.trim().length <= 0) {
-          if (value.isEmpty || value.length < 10) {
-            return 'Description is required and should be 10+ characters long.';
+          if (value.isEmpty || value.length < 4) {
+            return 'Description is required and should be 4+ characters long.';
           }
         },
         onSaved: (String value) {
@@ -94,6 +96,10 @@ class _ProductEditPageState extends State<ProductEditPage> {
     );
   }
 
+  void _setImage(File image){
+  _formData['image']=image;
+}
+
   Widget _buildPageContent(BuildContext context) {
     final double deviceWidth = MediaQuery.of(context).size.width;
     final double targetWidth = deviceWidth > 550.0 ? 500.0 : deviceWidth * 0.95;
@@ -112,6 +118,7 @@ class _ProductEditPageState extends State<ProductEditPage> {
               _buildTitleTextField(),
               _buildDescriptionTextField(),
               _buildPriceTextField(),
+              ImageInput(_setImage),
               SizedBox(
                 height: 10.0,
               ),
@@ -120,20 +127,13 @@ class _ProductEditPageState extends State<ProductEditPage> {
                 textColor: Colors.white,
                 onPressed: _submitForm,
               )
-              // GestureDetector(
-              //   onTap: _submitForm,
-              //   child: Container(
-              //     color: Colors.green,
-              //     padding: EdgeInsets.all(5.0),
-              //     child: Text('My Button'),
-              //   ),
-              // )
             ],
           ),
         ),
       ),
     );
   }
+
 
   void _submitForm() {
     if (!_formKey.currentState.validate()) {
