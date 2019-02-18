@@ -39,7 +39,6 @@ class _ProductEditPageState extends State<ProductEditPage> {
         decoration: InputDecoration(labelText: 'Product Title'),
         initialValue: widget.product == null ? '' : widget.product['title'],
         validator: (String value) {
-          // if (value.trim().length <= 0) {
           if (value.isEmpty || value.length < 4) {
             return 'Title is required and should be 4+ characters long.';
           }
@@ -96,9 +95,9 @@ class _ProductEditPageState extends State<ProductEditPage> {
     );
   }
 
-  void _setImage(File image){
-  _formData['image']=image;
-}
+  void _setImage(File image) {
+    _formData['image'] = image;
+  }
 
   Widget _buildPageContent(BuildContext context) {
     final double deviceWidth = MediaQuery.of(context).size.width;
@@ -118,7 +117,7 @@ class _ProductEditPageState extends State<ProductEditPage> {
               _buildTitleTextField(),
               _buildDescriptionTextField(),
               _buildPriceTextField(),
-              ImageInput(_setImage),
+              ImageInput(_setImage, widget.product),
               SizedBox(
                 height: 10.0,
               ),
@@ -133,7 +132,6 @@ class _ProductEditPageState extends State<ProductEditPage> {
       ),
     );
   }
-
 
   void _submitForm() {
     if (!_formKey.currentState.validate()) {
