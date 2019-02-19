@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 // import 'package:flutter/rendering.dart';
 
-import './pages/auth.dart';
+import './pages/start.dart';
 import './pages/products_admin.dart';
 import './pages/products.dart';
 import './pages/product.dart';
@@ -53,7 +53,7 @@ class _MyAppState extends State<MyApp> {
           buttonColor: Colors.deepPurple),
       // home: AuthPage(),
       routes: {
-        '/': (BuildContext context) => AuthPage(),
+        '/': (BuildContext context) => Start(),
         '/products': (BuildContext context) => ProductsPage(_products),
         '/admin': (BuildContext context) =>
             ProductsAdminPage(_addProduct, _updateProduct, _deleteProduct, _products),

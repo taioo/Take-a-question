@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class AuthPage extends StatefulWidget {
+class Start extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
-    return _AuthPageState();
+    return _StartState();
   }
 }
 
-class _AuthPageState extends State<AuthPage> {
+class _StartState extends State<Start> {
   final Map<String, dynamic> _formData = {
     'acceptTerms': false
   };
