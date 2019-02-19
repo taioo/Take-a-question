@@ -6,9 +6,9 @@ import 'package:image_picker/image_picker.dart';
 
 class ImageInput extends StatefulWidget {
   final Function setImage;
-  final Map<String, dynamic> product;
 
-  const ImageInput(this.setImage, this.product);
+
+  const ImageInput(this.setImage);
   @override
   State<StatefulWidget> createState() {
     return _ImageInputState();
@@ -93,16 +93,12 @@ class _ImageInputState extends State<ImageInput> {
           ),
         ),
         SizedBox(height: 10.0),
-        addImage(context, widget.product)
+        _addImage(context)
       ],
     );
   }
 
-  Widget addImage(BuildContext context, Map<String, dynamic> product) {
-    if (product != null) {
-      _imageFile = product['image'];
-    }
-
+  Widget _addImage(BuildContext context) {
     if (_imageFile == null) {
       return Text('Please pick an image.');
     } else {

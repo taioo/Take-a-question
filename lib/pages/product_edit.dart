@@ -117,7 +117,7 @@ class _ProductEditPageState extends State<ProductEditPage> {
               _buildTitleTextField(),
               _buildDescriptionTextField(),
               _buildPriceTextField(),
-              ImageInput(_setImage, widget.product),
+              ImageInput(_setImage),
               SizedBox(
                 height: 10.0,
               ),
