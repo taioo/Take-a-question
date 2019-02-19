@@ -25,6 +25,13 @@ class ProductsAdminPage extends StatelessWidget {
             onTap: () {
               Navigator.pushReplacementNamed(context, '/products');
             },
+          ),
+          ListTile(
+            leading: Icon(Icons.star),
+            title: Text('Go to Start Page'),
+            onTap: () {
+              Navigator.pushReplacementNamed(context, '/');
+            },
           )
         ],
       ),

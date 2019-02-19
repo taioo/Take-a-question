@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 
 import '../widgets/products/products.dart';
 
-class ProductsPage extends StatelessWidget {
+class QuestionPage extends StatelessWidget {
   final List<Map<String, dynamic>> products;
 
-  ProductsPage(this.products);
+  QuestionPage(this.products);
 
   Widget _buildSideDrawer(BuildContext context) {
     return Drawer(
@@ -21,6 +21,13 @@ class ProductsPage extends StatelessWidget {
             onTap: () {
               Navigator.pushReplacementNamed(context, '/admin');
             },
+          ),
+          ListTile(
+            leading: Icon(Icons.star),
+            title: Text('Go to Start Page'),
+            onTap: () {
+              Navigator.pushReplacementNamed(context, '/');
+            },
           )
         ],
       ),
@@ -33,8 +40,7 @@ class ProductsPage extends StatelessWidget {
       drawer: _buildSideDrawer(context),
       appBar: AppBar(
         title: Text('EasyList'),
-        actions: <Widget>[
-        ],
+        actions: <Widget>[],
       ),
       body: Products(products),
     );

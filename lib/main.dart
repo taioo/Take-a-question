@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 import './pages/start.dart';
 import './pages/products_admin.dart';
-import './pages/products.dart';
+import './pages/question.dart';
 import './pages/product.dart';
 
 void main() {
@@ -54,7 +54,7 @@ class _MyAppState extends State<MyApp> {
       // home: AuthPage(),
       routes: {
         '/': (BuildContext context) => Start(),
-        '/products': (BuildContext context) => ProductsPage(_products),
+        '/products': (BuildContext context) => QuestionPage(_products),
         '/admin': (BuildContext context) =>
             ProductsAdminPage(_addProduct, _updateProduct, _deleteProduct, _products),
       },
@@ -77,7 +77,7 @@ class _MyAppState extends State<MyApp> {
       },
       onUnknownRoute: (RouteSettings settings) {
         return MaterialPageRoute(
-            builder: (BuildContext context) => ProductsPage(_products));
+            builder: (BuildContext context) => QuestionPage(_products));
       },
     );
   }
