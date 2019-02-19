@@ -3,13 +3,13 @@ import 'package:flutter/material.dart';
 import './product_edit.dart';
 import './product_list.dart';
 
-class ProductsAdminPage extends StatelessWidget {
+class QuestionsAdminPage extends StatelessWidget {
   final Function addProduct;
   final Function updateProduct;
   final Function deleteProduct;
   final List<Map<String, dynamic>> products;
 
-  ProductsAdminPage(this.addProduct, this.updateProduct, this.deleteProduct, this.products);
+  QuestionsAdminPage(this.addProduct, this.updateProduct, this.deleteProduct, this.products);
 
   Widget _buildSideDrawer(BuildContext context) {
     return Drawer(
@@ -23,7 +23,7 @@ class ProductsAdminPage extends StatelessWidget {
             leading: Icon(Icons.border_horizontal),
             title: Text('All Products'),
             onTap: () {
-              Navigator.pushReplacementNamed(context, '/products');
+              Navigator.pushReplacementNamed(context, '/question');
             },
           ),
           ListTile(

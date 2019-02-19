@@ -144,7 +144,7 @@ class _ProductEditPageState extends State<ProductEditPage> {
       widget.updateProduct(widget.productIndex, _formData);
     }
 
-    Navigator.pushReplacementNamed(context, '/products');
+    Navigator.pushReplacementNamed(context, '/question');
   }
 
   @override

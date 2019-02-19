@@ -40,7 +40,7 @@ class _StartState extends State<Start> {
     }
     _formKey.currentState.save();
     print(_formData);
-    Navigator.pushReplacementNamed(context, '/products');
+    Navigator.pushReplacementNamed(context, '/question');
   }
 
   @override
