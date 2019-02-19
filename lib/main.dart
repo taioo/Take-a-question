@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 import './pages/start.dart';
 import './pages/products_admin.dart';
-import './pages/question.dart';
+import './pages/questionPage.dart';
 import './pages/product.dart';
 
 void main() {
