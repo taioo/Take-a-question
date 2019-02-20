@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../widgets/products/products.dart';
+import '../widgets/questions/question.dart';
 
 class QuestionSidebarPage extends StatelessWidget {
   final List<Map<String, dynamic>> products;

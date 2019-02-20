@@ -69,7 +69,7 @@ class _MyAppState extends State<MyApp> {
             builder: (BuildContext context) => QuestionPage(
                 _products[index]['title'],
                 _products[index]['image'],
-                _products[index]['price'],
+                _products[index]['age'],
                 _products[index]['description']),
           );
         }

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'dart:io';
 
 import '../widgets/helpers/ensure_visible.dart';
-import '../widgets/products/image.dart';
+import '../widgets/questions/image.dart';
 
 class QuestionEditPage extends StatefulWidget {
   final Function addProduct;
@@ -23,13 +23,13 @@ class _QuestionEditPageState extends State<QuestionEditPage> {
   final Map<String, dynamic> _formData = {
     'title': null,
     'description': null,
-    'price': null,
+    'age': null,
     'image': null,
   };
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   final _titleFocusNode = FocusNode();
   final _descriptionFocusNode = FocusNode();
-  final _priceFocusNode = FocusNode();
+  final _ageFocusNode = FocusNode();
 
   Widget _buildTitleTextField() {
     return EnsureVisibleWhenFocused(
@@ -72,24 +72,24 @@ class _QuestionEditPageState extends State<QuestionEditPage> {
     );
   }
 
-  Widget _buildPriceTextField() {
+  Widget _buildageTextField() {
     return EnsureVisibleWhenFocused(
-      focusNode: _priceFocusNode,
+      focusNode: _ageFocusNode,
       child: TextFormField(
-        focusNode: _priceFocusNode,
+        focusNode: _ageFocusNode,
         keyboardType: TextInputType.number,
-        decoration: InputDecoration(labelText: 'Product Price'),
+        decoration: InputDecoration(labelText: 'Product age'),
         initialValue:
-            widget.product == null ? '' : widget.product['price'].toString(),
+            widget.product == null ? '' : widget.product['age'].toString(),
         validator: (String value) {
           // if (value.trim().length <= 0) {
           if (value.isEmpty ||
               !RegExp(r'^(?:[1-9]\d*|0)?(?:\.\d+)?$').hasMatch(value)) {
-            return 'Price is required and should be a number.';
+            return 'age is required and should be a number.';
           }
         },
         onSaved: (String value) {
-          _formData['price'] = double.parse(value);
+          _formData['age'] = double.parse(value);
         },
       ),
     );
@@ -116,7 +116,7 @@ class _QuestionEditPageState extends State<QuestionEditPage> {
             children: <Widget>[
               _buildTitleTextField(),
               _buildDescriptionTextField(),
-              _buildPriceTextField(),
+              _buildageTextField(),
               ImageInput(_setImage),
               SizedBox(
                 height: 10.0,

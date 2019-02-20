@@ -8,17 +8,17 @@ import '../widgets/ui_elements/title_default.dart';
 class QuestionPage extends StatelessWidget {
   final String title;
   final File image;
-  final double price;
+  final double age;
   final String description;
 
- QuestionPage(this.title, this.image, this.price, this.description);
+ QuestionPage(this.title, this.image, this.age, this.description);
 
-  Widget _buildAddressPriceRow() {
+  Widget _buildAddressageRow() {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
         Text(
-          '\$' + price.toString(),
+          '\$' + age.toString(),
           style: TextStyle(fontFamily: 'Oswald', color: Colors.grey),
         )
       ],
@@ -44,7 +44,7 @@ class QuestionPage extends StatelessWidget {
               padding: EdgeInsets.all(10.0),
               child: TitleDefault(title),
             ),
-            _buildAddressPriceRow(),
+            _buildAddressageRow(),
             Container(
               padding: EdgeInsets.all(10.0),
               child: Text(

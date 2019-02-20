@@ -1,16 +1,15 @@
 import 'package:flutter/material.dart';
 
-import './price_tag.dart';
-import './address_tag.dart';
+import './age_tag.dart';
 import '../ui_elements/title_default.dart';
 
-class ProductCard extends StatelessWidget {
+class QuestionCard extends StatelessWidget {
   final Map<String, dynamic> product;
   final int productIndex;
 
-  ProductCard(this.product, this.productIndex);
+  QuestionCard(this.product, this.productIndex);
 
-  Widget _buildTitlePriceRow() {
+  Widget _buildTitleageRow() {
     return Container(
       padding: EdgeInsets.only(top: 10.0),
       child: Row(
@@ -20,7 +19,7 @@ class ProductCard extends StatelessWidget {
           SizedBox(
             width: 8.0,
           ),
-          PriceTag(product['price'].toString())
+          AgeTag(product['age'].toString())
         ],
       ),
     );
@@ -47,7 +46,7 @@ class ProductCard extends StatelessWidget {
       child: Column(
         children: <Widget>[
           Image.file(product['image']),
-          _buildTitlePriceRow(),
+          _buildTitleageRow(),
           _buildActionButtons(context)
         ],
       ),

@@ -45,7 +45,7 @@ class QuestionListPage extends StatelessWidget {
                 leading: CircleAvatar(
                     backgroundImage: FileImage(products[index]['image'])),
                 title: Text(products[index]['title']),
-                subtitle: Text('\$${products[index]['price'].toString()}'),
+                subtitle: Text('\$${products[index]['age'].toString()}'),
                 trailing: _buildEditButton(context, index),
               ),
               Divider()

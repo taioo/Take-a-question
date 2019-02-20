@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-class PriceTag extends StatelessWidget {
-  final String price;
+class AgeTag extends StatelessWidget {
+  final String age;
 
-  PriceTag(this.price);
+  AgeTag(this.age);
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +13,7 @@ class PriceTag extends StatelessWidget {
           color: Theme.of(context).accentColor,
           borderRadius: BorderRadius.circular(5.0)),
       child: Text(
-        '\$$price',
+        '\ $age',
         style: TextStyle(color: Colors.white),
       ),
     );
