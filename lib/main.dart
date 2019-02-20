@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 
 import './pages/start.dart';
 import './pages/questions_admin.dart';
+import './pages/questionSidebarPage.dart';
 import './pages/questionPage.dart';
-import './pages/product.dart';
 
 void main() {
   // debugPaintSizeEnabled = true;
@@ -54,7 +54,7 @@ class _MyAppState extends State<MyApp> {
       // home: AuthPage(),
       routes: {
         '/': (BuildContext context) => Start(),
-        '/question': (BuildContext context) => QuestionPage(_products),
+        '/question': (BuildContext context) => QuestionSidebarPage(_products),
         '/admin': (BuildContext context) =>
             QuestionsAdminPage(_addProduct, _updateProduct, _deleteProduct, _products),
       },
@@ -66,7 +66,7 @@ class _MyAppState extends State<MyApp> {
         if (pathElements[1] == 'product') {
           final int index = int.parse(pathElements[2]);
           return MaterialPageRoute<bool>(
-            builder: (BuildContext context) => ProductPage(
+            builder: (BuildContext context) => QuestionPage(
                 _products[index]['title'],
                 _products[index]['image'],
                 _products[index]['price'],
@@ -77,7 +77,7 @@ class _MyAppState extends State<MyApp> {
       },
       onUnknownRoute: (RouteSettings settings) {
         return MaterialPageRoute(
-            builder: (BuildContext context) => QuestionPage(_products));
+            builder: (BuildContext context) => QuestionSidebarPage(_products));
       },
     );
   }

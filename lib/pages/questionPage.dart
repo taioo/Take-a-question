@@ -1,48 +1,60 @@
+import 'dart:async';
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 
-import '../widgets/products/products.dart';
+import '../widgets/ui_elements/title_default.dart';
 
 class QuestionPage extends StatelessWidget {
-  final List<Map<String, dynamic>> products;
+  final String title;
+  final File image;
+  final double price;
+  final String description;
 
-  QuestionPage(this.products);
+ QuestionPage(this.title, this.image, this.price, this.description);
 
-  Widget _buildSideDrawer(BuildContext context) {
-    return Drawer(
-      child: Column(
-        children: <Widget>[
-          AppBar(
-            automaticallyImplyLeading: false,
-            title: Text('Choose'),
-          ),
-          ListTile(
-            leading: Icon(Icons.edit),
-            title: Text('Manage Products'),
-            onTap: () {
-              Navigator.pushReplacementNamed(context, '/admin');
-            },
-          ),
-          ListTile(
-            leading: Icon(Icons.star),
-            title: Text('Go to Start Page'),
-            onTap: () {
-              Navigator.pushReplacementNamed(context, '/');
-            },
-          )
-        ],
-      ),
+  Widget _buildAddressPriceRow() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: <Widget>[
+        Text(
+          '\$' + price.toString(),
+          style: TextStyle(fontFamily: 'Oswald', color: Colors.grey),
+        )
+      ],
     );
   }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      drawer: _buildSideDrawer(context),
-      appBar: AppBar(
-        title: Text('EasyList'),
-        actions: <Widget>[],
+    return WillPopScope(
+      onWillPop: () {
+        print('Back button pressed!');
+        Navigator.pop(context, false);
+        return Future.value(false);
+      },
+      child: Scaffold(
+        appBar: AppBar(
+          title: Text(title),
+        ),
+        body: ListView(
+          children: <Widget>[
+            Image.file(image),
+            Container(
+              padding: EdgeInsets.all(10.0),
+              child: TitleDefault(title),
+            ),
+            _buildAddressPriceRow(),
+            Container(
+              padding: EdgeInsets.all(10.0),
+              child: Text(
+                description,
+                textAlign: TextAlign.center,
+              ),
+            )
+          ],
+        ),
       ),
-      body: Products(products),
     );
   }
 }

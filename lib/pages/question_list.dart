@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-import './product_edit.dart';
+import './question_edit.dart';
 
-class ProductListPage extends StatelessWidget {
+class QuestionListPage extends StatelessWidget {
   final Function updateProduct;
   final Function deleteProduct;
   final List<Map<String, dynamic>> products;
 
-  ProductListPage(this.products, this.updateProduct, this.deleteProduct);
+  QuestionListPage(this.products, this.updateProduct, this.deleteProduct);
 
   Widget _buildEditButton(BuildContext context, int index) {
     return IconButton(
@@ -16,7 +16,7 @@ class ProductListPage extends StatelessWidget {
         Navigator.of(context).push(
           MaterialPageRoute(
             builder: (BuildContext context) {
-              return ProductEditPage(
+              return QuestionEditPage(
                 product: products[index],
                 updateProduct: updateProduct,
                 productIndex: index,
@@ -35,21 +35,15 @@ class ProductListPage extends StatelessWidget {
         return Dismissible(
           key: Key(products[index]['title']),
           onDismissed: (DismissDirection direction) {
-            if (direction == DismissDirection.endToStart) {
-              deleteProduct(index);
-            } else if (direction == DismissDirection.startToEnd) {
-              print('Swiped start to end');
-            } else {
-              print('Other swiping');
-            }
+            // cant delete two same question 
+            deleteProduct(index);
           },
           background: Container(color: Colors.red),
           child: Column(
             children: <Widget>[
               ListTile(
-              leading: CircleAvatar(
-                  backgroundImage: FileImage(products[index]['image'])
-                ),
+                leading: CircleAvatar(
+                    backgroundImage: FileImage(products[index]['image'])),
                 title: Text(products[index]['title']),
                 subtitle: Text('\$${products[index]['price'].toString()}'),
                 trailing: _buildEditButton(context, index),

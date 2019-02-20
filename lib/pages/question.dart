@@ -5,13 +5,13 @@ import 'package:flutter/material.dart';
 
 import '../widgets/ui_elements/title_default.dart';
 
-class ProductPage extends StatelessWidget {
+class Question extends StatelessWidget {
   final String title;
   final File image;
   final double price;
   final String description;
 
-  ProductPage(this.title, this.image, this.price, this.description);
+  Question(this.title, this.image, this.price, this.description);
 
   Widget _buildAddressPriceRow() {
     return Row(

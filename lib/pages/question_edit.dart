@@ -4,22 +4,22 @@ import 'dart:io';
 import '../widgets/helpers/ensure_visible.dart';
 import '../widgets/products/image.dart';
 
-class ProductEditPage extends StatefulWidget {
+class QuestionEditPage extends StatefulWidget {
   final Function addProduct;
   final Function updateProduct;
   final Map<String, dynamic> product;
   final int productIndex;
 
-  ProductEditPage(
+  QuestionEditPage(
       {this.addProduct, this.updateProduct, this.product, this.productIndex});
 
   @override
   State<StatefulWidget> createState() {
-    return _ProductEditPageState();
+    return _QuestionEditPageState();
   }
 }
 
-class _ProductEditPageState extends State<ProductEditPage> {
+class _QuestionEditPageState extends State<QuestionEditPage> {
   final Map<String, dynamic> _formData = {
     'title': null,
     'description': null,
