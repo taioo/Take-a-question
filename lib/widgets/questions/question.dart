@@ -2,30 +2,30 @@ import 'package:flutter/material.dart';
 
 import './question_card.dart';
 
-class Products extends StatelessWidget {
-  final List<Map<String, dynamic>> products;
+class Questions extends StatelessWidget {
+  final List<Map<String, dynamic>> questions;
 
-  Products(this.products) {
-    print('[Products Widget] Constructor');
+  Questions(this.questions) {
+    print('[Questions Widget] Constructor');
   }
 
-  Widget _buildProductList() {
-    Widget productCards;
-    if (products.length > 0) {
-      productCards = ListView.builder(
+  Widget _buildQuestionList() {
+    Widget questionCards;
+    if (questions.length > 0) {
+      questionCards = ListView.builder(
         itemBuilder: (BuildContext context, int index) =>
-            QuestionCard(products[index], index),
-        itemCount: products.length,
+            QuestionCard(questions[index], index),
+        itemCount: questions.length,
       );
     } else {
-      productCards = Container();
+      questionCards = Container();
     }
-    return productCards;
+    return questionCards;
   }
 
   @override
   Widget build(BuildContext context) {
-    print('[Products Widget] build()');
-    return _buildProductList();
+    print('[Questions Widget] build()');
+    return _buildQuestionList();
   }
 }

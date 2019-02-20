@@ -5,13 +5,13 @@ import '../widgets/helpers/ensure_visible.dart';
 import '../widgets/questions/image.dart';
 
 class QuestionEditPage extends StatefulWidget {
-  final Function addProduct;
-  final Function updateProduct;
-  final Map<String, dynamic> product;
-  final int productIndex;
+  final Function addQuestion;
+  final Function updateQuestion;
+  final Map<String, dynamic> question;
+  final int questionIndex;
 
   QuestionEditPage(
-      {this.addProduct, this.updateProduct, this.product, this.productIndex});
+      {this.addQuestion, this.updateQuestion, this.question, this.questionIndex});
 
   @override
   State<StatefulWidget> createState() {
@@ -36,8 +36,8 @@ class _QuestionEditPageState extends State<QuestionEditPage> {
       focusNode: _titleFocusNode,
       child: TextFormField(
         focusNode: _titleFocusNode,
-        decoration: InputDecoration(labelText: 'Product Title'),
-        initialValue: widget.product == null ? '' : widget.product['title'],
+        decoration: InputDecoration(labelText: 'Question Title'),
+        initialValue: widget.question == null ? '' : widget.question['title'],
         validator: (String value) {
           if (value.isEmpty || value.length < 4) {
             return 'Title is required and should be 4+ characters long.';
@@ -56,9 +56,9 @@ class _QuestionEditPageState extends State<QuestionEditPage> {
       child: TextFormField(
         focusNode: _descriptionFocusNode,
         maxLines: 4,
-        decoration: InputDecoration(labelText: 'Product Description'),
+        decoration: InputDecoration(labelText: 'Question Description'),
         initialValue:
-            widget.product == null ? '' : widget.product['description'],
+            widget.question == null ? '' : widget.question['description'],
         validator: (String value) {
           // if (value.trim().length <= 0) {
           if (value.isEmpty || value.length < 4) {
@@ -78,9 +78,9 @@ class _QuestionEditPageState extends State<QuestionEditPage> {
       child: TextFormField(
         focusNode: _ageFocusNode,
         keyboardType: TextInputType.number,
-        decoration: InputDecoration(labelText: 'Product age'),
+        decoration: InputDecoration(labelText: 'Question age'),
         initialValue:
-            widget.product == null ? '' : widget.product['age'].toString(),
+            widget.question == null ? '' : widget.question['age'].toString(),
         validator: (String value) {
           // if (value.trim().length <= 0) {
           if (value.isEmpty ||
@@ -138,10 +138,10 @@ class _QuestionEditPageState extends State<QuestionEditPage> {
       return;
     }
     _formKey.currentState.save();
-    if (widget.product == null) {
-      widget.addProduct(_formData);
+    if (widget.question == null) {
+      widget.addQuestion(_formData);
     } else {
-      widget.updateProduct(widget.productIndex, _formData);
+      widget.updateQuestion(widget.questionIndex, _formData);
     }
 
     Navigator.pushReplacementNamed(context, '/question');
@@ -150,11 +150,11 @@ class _QuestionEditPageState extends State<QuestionEditPage> {
   @override
   Widget build(BuildContext context) {
     final Widget pageContent = _buildPageContent(context);
-    return widget.product == null
+    return widget.question == null
         ? pageContent
         : Scaffold(
             appBar: AppBar(
-              title: Text('Edit Product'),
+              title: Text('Edit Question'),
             ),
             body: pageContent,
           );

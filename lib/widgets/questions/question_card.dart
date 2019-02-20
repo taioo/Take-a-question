@@ -4,10 +4,10 @@ import './age_tag.dart';
 import '../ui_elements/title_default.dart';
 
 class QuestionCard extends StatelessWidget {
-  final Map<String, dynamic> product;
-  final int productIndex;
+  final Map<String, dynamic> question;
+  final int questionIndex;
 
-  QuestionCard(this.product, this.productIndex);
+  QuestionCard(this.question, this.questionIndex);
 
   Widget _buildTitleageRow() {
     return Container(
@@ -15,11 +15,11 @@ class QuestionCard extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          TitleDefault(product['title']),
+          TitleDefault(question['title']),
           SizedBox(
             width: 8.0,
           ),
-          AgeTag(product['age'].toString())
+          AgeTag(question['age'].toString())
         ],
       ),
     );
@@ -34,7 +34,7 @@ class QuestionCard extends StatelessWidget {
           icon: Icon(Icons.keyboard_arrow_right),
           color: Theme.of(context).accentColor,
           onPressed: () => Navigator.pushNamed<bool>(
-              context, '/product/' + productIndex.toString()),
+              context, '/question/' + questionIndex.toString()),
         ),
       ],
     );
@@ -45,12 +45,11 @@ class QuestionCard extends StatelessWidget {
     return Card(
       child: Column(
         children: <Widget>[
-          Image.file(product['image']),
+          Image.file(question['image']),
           _buildTitleageRow(),
           _buildActionButtons(context)
         ],
       ),
     );
-    ;
   }
 }

@@ -4,12 +4,12 @@ import './question_edit.dart';
 import './question_list.dart';
 
 class QuestionsAdminPage extends StatelessWidget {
-  final Function addProduct;
-  final Function updateProduct;
-  final Function deleteProduct;
-  final List<Map<String, dynamic>> products;
+  final Function addQuestion;
+  final Function updateQuestion;
+  final Function deleteQuestion;
+  final List<Map<String, dynamic>> questions;
 
-  QuestionsAdminPage(this.addProduct, this.updateProduct, this.deleteProduct, this.products);
+  QuestionsAdminPage(this.addQuestion, this.updateQuestion, this.deleteQuestion, this.questions);
 
   Widget _buildSideDrawer(BuildContext context) {
     return Drawer(
@@ -21,7 +21,7 @@ class QuestionsAdminPage extends StatelessWidget {
           ),
           ListTile(
             leading: Icon(Icons.border_horizontal),
-            title: Text('All Products'),
+            title: Text('All Questions'),
             onTap: () {
               Navigator.pushReplacementNamed(context, '/question');
             },
@@ -45,24 +45,24 @@ class QuestionsAdminPage extends StatelessWidget {
       child: Scaffold(
         drawer: _buildSideDrawer(context),
         appBar: AppBar(
-          title: Text('Manage Products'),
+          title: Text('Manage Questions'),
           bottom: TabBar(
             tabs: <Widget>[
               Tab(
                 icon: Icon(Icons.create),
-                text: 'Create Product',
+                text: 'Create Question',
               ),
               Tab(
                 icon: Icon(Icons.list),
-                text: 'My Products',
+                text: 'My Questions',
               ),
             ],
           ),
         ),
         body: TabBarView(
           children: <Widget>[
-            QuestionEditPage(addProduct: addProduct),
-            QuestionListPage(products, updateProduct, deleteProduct)
+            QuestionEditPage(addQuestion: addQuestion),
+            QuestionListPage(questions, updateQuestion, deleteQuestion)
           ],
         ),
       ),

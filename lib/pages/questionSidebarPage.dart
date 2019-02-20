@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 import '../widgets/questions/question.dart';
 
 class QuestionSidebarPage extends StatelessWidget {
-  final List<Map<String, dynamic>> products;
+  final List<Map<String, dynamic>> questions;
 
-  QuestionSidebarPage(this.products);
+  QuestionSidebarPage(this.questions);
 
   Widget _buildSideDrawer(BuildContext context) {
     return Drawer(
@@ -17,7 +17,7 @@ class QuestionSidebarPage extends StatelessWidget {
           ),
           ListTile(
             leading: Icon(Icons.edit),
-            title: Text('Manage Products'),
+            title: Text('Manage Questions'),
             onTap: () {
               Navigator.pushReplacementNamed(context, '/admin');
             },
@@ -42,7 +42,7 @@ class QuestionSidebarPage extends StatelessWidget {
         title: Text('EasyList'),
         actions: <Widget>[],
       ),
-      body: Products(products),
+      body: Questions(questions),
     );
   }
 }

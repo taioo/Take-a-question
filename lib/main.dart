@@ -21,24 +21,24 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  List<Map<String, dynamic>> _products = [];
+  List<Map<String, dynamic>> _questions = [];
 
-  void _addProduct(Map<String, dynamic> product) {
+  void _addQuestion(Map<String, dynamic> question) {
     setState(() {
-      _products.add(product);
+      _questions.add(question);
     });
-    print(_products);
+    print(_questions);
   }
 
-  void _updateProduct(int index, Map<String, dynamic> product) {
+  void _updateQuestion(int index, Map<String, dynamic> question) {
     setState(() {
-      _products[index] = product;
+      _questions[index] = question;
     });
   }
 
-  void _deleteProduct(int index) {
+  void _deleteQuestion(int index) {
     setState(() {
-      _products.removeAt(index);
+      _questions.removeAt(index);
     });
   }
 
@@ -54,30 +54,30 @@ class _MyAppState extends State<MyApp> {
       // home: AuthPage(),
       routes: {
         '/': (BuildContext context) => Start(),
-        '/question': (BuildContext context) => QuestionSidebarPage(_products),
+        '/question': (BuildContext context) => QuestionSidebarPage(_questions),
         '/admin': (BuildContext context) =>
-            QuestionsAdminPage(_addProduct, _updateProduct, _deleteProduct, _products),
+            QuestionsAdminPage(_addQuestion, _updateQuestion, _deleteQuestion, _questions),
       },
       onGenerateRoute: (RouteSettings settings) {
         final List<String> pathElements = settings.name.split('/');
         if (pathElements[0] != '') {
           return null;
         }
-        if (pathElements[1] == 'product') {
+        if (pathElements[1] == 'question') {
           final int index = int.parse(pathElements[2]);
           return MaterialPageRoute<bool>(
             builder: (BuildContext context) => QuestionPage(
-                _products[index]['title'],
-                _products[index]['image'],
-                _products[index]['age'],
-                _products[index]['description']),
+                _questions[index]['title'],
+                _questions[index]['image'],
+                _questions[index]['age'],
+                _questions[index]['description']),
           );
         }
         return null;
       },
       onUnknownRoute: (RouteSettings settings) {
         return MaterialPageRoute(
-            builder: (BuildContext context) => QuestionSidebarPage(_products));
+            builder: (BuildContext context) => QuestionSidebarPage(_questions));
       },
     );
   }

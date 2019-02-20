@@ -3,11 +3,11 @@ import 'package:flutter/material.dart';
 import './question_edit.dart';
 
 class QuestionListPage extends StatelessWidget {
-  final Function updateProduct;
-  final Function deleteProduct;
-  final List<Map<String, dynamic>> products;
+  final Function updateQuestion;
+  final Function deleteQuestion;
+  final List<Map<String, dynamic>> questions;
 
-  QuestionListPage(this.products, this.updateProduct, this.deleteProduct);
+  QuestionListPage(this.questions, this.updateQuestion, this.deleteQuestion);
 
   Widget _buildEditButton(BuildContext context, int index) {
     return IconButton(
@@ -17,9 +17,9 @@ class QuestionListPage extends StatelessWidget {
           MaterialPageRoute(
             builder: (BuildContext context) {
               return QuestionEditPage(
-                product: products[index],
-                updateProduct: updateProduct,
-                productIndex: index,
+                question: questions[index],
+                updateQuestion: updateQuestion,
+                questionIndex: index,
               );
             },
           ),
@@ -33,19 +33,19 @@ class QuestionListPage extends StatelessWidget {
     return ListView.builder(
       itemBuilder: (BuildContext context, int index) {
         return Dismissible(
-          key: Key(products[index]['title']),
+          key: Key(questions[index]['title']),
           onDismissed: (DismissDirection direction) {
             // cant delete two same question 
-            deleteProduct(index);
+            deleteQuestion(index);
           },
           background: Container(color: Colors.red),
           child: Column(
             children: <Widget>[
               ListTile(
                 leading: CircleAvatar(
-                    backgroundImage: FileImage(products[index]['image'])),
-                title: Text(products[index]['title']),
-                subtitle: Text('\$${products[index]['age'].toString()}'),
+                    backgroundImage: FileImage(questions[index]['image'])),
+                title: Text(questions[index]['title']),
+                subtitle: Text('\age: ${questions[index]['age'].toString()}'),
                 trailing: _buildEditButton(context, index),
               ),
               Divider()
@@ -53,7 +53,7 @@ class QuestionListPage extends StatelessWidget {
           ),
         );
       },
-      itemCount: products.length,
+      itemCount: questions.length,
     );
   }
 }
