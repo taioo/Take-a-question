@@ -21,7 +21,7 @@ class QuestionsAdminPage extends StatelessWidget {
           ),
           ListTile(
             leading: Icon(Icons.border_horizontal),
-            title: Text('All Questions'),
+            title: Text('List all Questions'),
             onTap: () {
               Navigator.pushReplacementNamed(context, '/question');
             },
@@ -54,7 +54,7 @@ class QuestionsAdminPage extends StatelessWidget {
               ),
               Tab(
                 icon: Icon(Icons.list),
-                text: 'My Questions',
+                text: 'Edit Questions',
               ),
             ],
           ),

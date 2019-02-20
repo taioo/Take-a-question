@@ -8,7 +8,7 @@ import '../widgets/ui_elements/title_default.dart';
 class QuestionPage extends StatelessWidget {
   final String title;
   final File image;
-  final double age;
+  final int age;
   final String description;
 
  QuestionPage(this.title, this.image, this.age, this.description);
@@ -18,7 +18,7 @@ class QuestionPage extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
         Text(
-          '\$' + age.toString(),
+          '\age:' + age.toString(),
           style: TextStyle(fontFamily: 'Oswald', color: Colors.grey),
         )
       ],

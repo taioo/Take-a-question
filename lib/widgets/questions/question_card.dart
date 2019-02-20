@@ -19,7 +19,7 @@ class QuestionCard extends StatelessWidget {
           SizedBox(
             width: 8.0,
           ),
-          AgeTag(question['age'].toString())
+          AgeTag(question['age'])
         ],
       ),
     );

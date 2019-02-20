@@ -78,18 +78,18 @@ class _QuestionEditPageState extends State<QuestionEditPage> {
       child: TextFormField(
         focusNode: _ageFocusNode,
         keyboardType: TextInputType.number,
-        decoration: InputDecoration(labelText: 'Question age'),
+        decoration: InputDecoration(labelText: 'Your Age'),
         initialValue:
             widget.question == null ? '' : widget.question['age'].toString(),
         validator: (String value) {
           // if (value.trim().length <= 0) {
           if (value.isEmpty ||
-              !RegExp(r'^(?:[1-9]\d*|0)?(?:\.\d+)?$').hasMatch(value)) {
+              !RegExp(r'^[1-9]*$').hasMatch(value)) {
             return 'age is required and should be a number.';
           }
         },
         onSaved: (String value) {
-          _formData['age'] = double.parse(value);
+          _formData['age'] = int.parse(value);
         },
       ),
     );
