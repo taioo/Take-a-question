@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import './pages/start.dart';
 import './pages/questions_admin.dart';
 import './pages/questionSidebarPage.dart';
-import './pages/questionPage.dart';
 
 void main() {
   // debugPaintSizeEnabled = true;
@@ -58,23 +57,7 @@ class _MyAppState extends State<MyApp> {
         '/admin': (BuildContext context) =>
             QuestionsAdminPage(_addQuestion, _updateQuestion, _deleteQuestion, _questions),
       },
-      onGenerateRoute: (RouteSettings settings) {
-        final List<String> pathElements = settings.name.split('/');
-        if (pathElements[0] != '') {
-          return null;
-        }
-        if (pathElements[1] == 'question') {
-          final int index = int.parse(pathElements[2]);
-          return MaterialPageRoute<bool>(
-            builder: (BuildContext context) => QuestionPage(
-                _questions[index]['title'],
-                _questions[index]['image'],
-                _questions[index]['age'],
-                _questions[index]['description']),
-          );
-        }
-        return null;
-      },
+
       onUnknownRoute: (RouteSettings settings) {
         return MaterialPageRoute(
             builder: (BuildContext context) => QuestionSidebarPage(_questions));

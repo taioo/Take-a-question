@@ -84,8 +84,8 @@ class _QuestionEditPageState extends State<QuestionEditPage> {
         validator: (String value) {
           // if (value.trim().length <= 0) {
           if (value.isEmpty ||
-              !RegExp(r'^[1-9]*$').hasMatch(value)) {
-            return 'age is required and should be a number.';
+              !RegExp(r'^(\+|-)?\d+$').hasMatch(value)) {
+            return 'age is required and should be a number not bigger than 150.';
           }
         },
         onSaved: (String value) {

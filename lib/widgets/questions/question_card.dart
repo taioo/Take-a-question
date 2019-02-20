@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import './age_tag.dart';
+import './description_tag.dart';
 import '../ui_elements/title_default.dart';
 
 class QuestionCard extends StatelessWidget {
@@ -19,24 +20,10 @@ class QuestionCard extends StatelessWidget {
           SizedBox(
             width: 8.0,
           ),
-          AgeTag(question['age'])
+          AgeTag(question['age']),
+          
         ],
       ),
-    );
-  }
-
-  Widget _buildActionButtons(BuildContext context) {
-    return ButtonBar(
-      alignment: MainAxisAlignment.center,
-      children: <Widget>[
-        Text('Read question'),
-        IconButton(
-          icon: Icon(Icons.keyboard_arrow_right),
-          color: Theme.of(context).accentColor,
-          onPressed: () => Navigator.pushNamed<bool>(
-              context, '/question/' + questionIndex.toString()),
-        ),
-      ],
     );
   }
 
@@ -47,7 +34,7 @@ class QuestionCard extends StatelessWidget {
         children: <Widget>[
           Image.file(question['image']),
           _buildTitleageRow(),
-          _buildActionButtons(context)
+          DescriptionTag(question['description']),
         ],
       ),
     );

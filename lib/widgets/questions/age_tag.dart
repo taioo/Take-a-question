@@ -8,12 +8,12 @@ class AgeTag extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 6.0, vertical: 2.5),
+      padding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 5),
       decoration: BoxDecoration(
           color: Theme.of(context).accentColor,
           borderRadius: BorderRadius.circular(5.0)),
       child: Text(
-        '\ $age',
+        '\Age: $age',
         style: TextStyle(color: Colors.white),
       ),
     );
