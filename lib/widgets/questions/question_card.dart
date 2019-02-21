@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import './age_tag.dart';
 import './description_tag.dart';
-import '../ui_elements/title_default.dart';
+import '../ui_elements/name_default.dart';
 
 class QuestionCard extends StatelessWidget {
   final Map<String, dynamic> question;
@@ -16,7 +16,7 @@ class QuestionCard extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          TitleDefault(question['title']),
+          NameDefault(question['name']),
           SizedBox(
             width: 8.0,
           ),

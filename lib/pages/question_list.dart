@@ -33,7 +33,7 @@ class QuestionListPage extends StatelessWidget {
     return ListView.builder(
       itemBuilder: (BuildContext context, int index) {
         return Dismissible(
-          key: Key(questions[index]['title']),
+          key: Key(questions[index]['name']),
           onDismissed: (DismissDirection direction) {
             // cant delete two same question 
             deleteQuestion(index);
@@ -44,7 +44,7 @@ class QuestionListPage extends StatelessWidget {
               ListTile(
                 leading: CircleAvatar(
                     backgroundImage: FileImage(questions[index]['image'])),
-                title: Text(questions[index]['title']),
+                title: Text(questions[index]['name']),
                 subtitle: Text('\age: ${questions[index]['age'].toString()}'),
                 trailing: _buildEditButton(context, index),
               ),

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 // import 'package:flutter/rendering.dart';
 
 import './pages/start.dart';
-import './pages/questions_admin.dart';
+import './pages/questions_all.dart';
 import './pages/questionSidebarPage.dart';
 
 void main() {
@@ -49,7 +49,7 @@ class _MyAppState extends State<MyApp> {
           brightness: Brightness.light,
           primarySwatch: Colors.deepOrange,
           accentColor: Colors.deepPurple,
-          buttonColor: Colors.deepPurple),
+          buttonColor: Colors.red),
       // home: AuthPage(),
       routes: {
         '/': (BuildContext context) => Start(),

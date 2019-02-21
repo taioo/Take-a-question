@@ -21,7 +21,7 @@ class QuestionEditPage extends StatefulWidget {
 
 class _QuestionEditPageState extends State<QuestionEditPage> {
   final Map<String, dynamic> _formData = {
-    'title': null,
+    'name': null,
     'description': null,
     'age': null,
     'image': null,
@@ -36,15 +36,15 @@ class _QuestionEditPageState extends State<QuestionEditPage> {
       focusNode: _titleFocusNode,
       child: TextFormField(
         focusNode: _titleFocusNode,
-        decoration: InputDecoration(labelText: 'Question Title'),
-        initialValue: widget.question == null ? '' : widget.question['title'],
+        decoration: InputDecoration(labelText: 'Name'),
+        initialValue: widget.question == null ? '' : widget.question['name'],
         validator: (String value) {
           if (value.isEmpty || value.length < 4) {
             return 'Title is required and should be 4+ characters long.';
           }
         },
         onSaved: (String value) {
-          _formData['title'] = value;
+          _formData['name'] = value;
         },
       ),
     );
@@ -56,7 +56,7 @@ class _QuestionEditPageState extends State<QuestionEditPage> {
       child: TextFormField(
         focusNode: _descriptionFocusNode,
         maxLines: 4,
-        decoration: InputDecoration(labelText: 'Question Description'),
+        decoration: InputDecoration(labelText: 'Question'),
         initialValue:
             widget.question == null ? '' : widget.question['description'],
         validator: (String value) {
