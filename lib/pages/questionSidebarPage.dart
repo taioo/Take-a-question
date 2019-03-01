@@ -39,7 +39,7 @@ class QuestionSidebarPage extends StatelessWidget {
     return Scaffold(
       drawer: _buildSideDrawer(context),
       appBar: AppBar(
-        title: Text('EasyList'),
+        title: Text('View all questions'),
         actions: <Widget>[],
       ),
       body: Questions(questions),

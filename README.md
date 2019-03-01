@@ -27,3 +27,5 @@ for all devices
 ```
 flutter run -d all
 ```
+Demo example on a ipad simulator
+![GIF](demo.gif)
