@@ -13,9 +13,9 @@ class DescriptionTag extends StatelessWidget {
           color: Colors.lightGreenAccent,
           borderRadius: BorderRadius.circular(5.0)),
       child: Text(
-        '$description ?',
+        description,
         style: TextStyle(
-          fontSize: 20.0, fontWeight: FontWeight.bold, fontFamily: 'Oswald'),
+            fontSize: 30.0, fontWeight: FontWeight.bold, fontFamily: 'Oswald'),
       ),
     );
   }

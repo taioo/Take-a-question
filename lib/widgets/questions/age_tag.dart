@@ -13,8 +13,9 @@ class AgeTag extends StatelessWidget {
           color: Theme.of(context).accentColor,
           borderRadius: BorderRadius.circular(5.0)),
       child: Text(
-        '\Age: $age',
-        style: TextStyle(color: Colors.white),
+        age.toString(),
+        style: TextStyle(
+            fontSize: 30.0, fontWeight: FontWeight.bold, fontFamily: 'Oswald'),
       ),
     );
   }

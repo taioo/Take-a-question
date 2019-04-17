@@ -10,30 +10,14 @@ class QuestionCard extends StatelessWidget {
 
   QuestionCard(this.question, this.questionIndex);
 
-  Widget _buildTitleageRow() {
-    return Container(
-      padding: EdgeInsets.only(top: 10.0),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          NameDefault(question['name']),
-          SizedBox(
-            width: 8.0,
-          ),
-          AgeTag(question['age']),
-          
-        ],
-      ),
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
     return Card(
       child: Column(
         children: <Widget>[
           Image.file(question['image']),
-          _buildTitleageRow(),
+          NameDefault(question['name']),
+          AgeTag(question['age']),
           DescriptionTag(question['description']),
         ],
       ),

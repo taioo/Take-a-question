@@ -26,7 +26,6 @@ class _MyAppState extends State<MyApp> {
     setState(() {
       _questions.add(question);
     });
-    print(_questions);
   }
 
   void _updateQuestion(int index, Map<String, dynamic> question) {

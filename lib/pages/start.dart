@@ -39,7 +39,6 @@ class _StartState extends State<Start> {
       return;
     }
     _formKey.currentState.save();
-    print(_formData);
     Navigator.pushReplacementNamed(context, '/question');
   }
 
