@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 // import 'package:flutter/rendering.dart';
 
@@ -42,6 +44,12 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
+
+
+for (var i = 0; i < 2; i++) {
+  _questions.add({'name': 'test', 'description': 'test', 'age': 99, 'image': File('')});
+}
+
     return MaterialApp(
       // debugShowMaterialGrid: true,
       theme: ThemeData(
