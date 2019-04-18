@@ -11,7 +11,6 @@ class _StartState extends State<Start> {
   final Map<String, dynamic> _formData = {
     'acceptTerms': false
   };
-  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   DecorationImage _buildBackgroundImage() {
     return DecorationImage(
@@ -22,23 +21,7 @@ class _StartState extends State<Start> {
     );
   }
 
-  Widget _buildAcceptSwitch() {
-    return SwitchListTile(
-      value: _formData['acceptTerms'],
-      onChanged: (bool value) {
-        setState(() {
-          _formData['acceptTerms'] = value;
-        });
-      },
-      title: Text('Accept Terms'),
-    );
-  }
-
   void _submitForm() {
-    if (!_formKey.currentState.validate() || !_formData['acceptTerms']) {
-      return;
-    }
-    _formKey.currentState.save();
     Navigator.pushReplacementNamed(context, '/question');
   }
 
@@ -59,14 +42,8 @@ class _StartState extends State<Start> {
             child: Container(
               width: targetWidth,
               child: Form(
-                key: _formKey,
                 child: Column(
                   children: <Widget>[
-                    Text('your questen will be public'),
-                    _buildAcceptSwitch(),
-                    SizedBox(
-                      height: 10.0,
-                    ),
                     RaisedButton(
                       textColor: Colors.white,
                       child: Text('Accept'),

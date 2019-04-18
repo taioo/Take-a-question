@@ -43,7 +43,7 @@ class QuestionListPage extends StatelessWidget {
             children: <Widget>[
               ListTile(
                 leading: CircleAvatar(
-                    backgroundImage: FileImage(questions[index]['image'])),
+                    backgroundImage: questions[index]['image']== null ? null: FileImage(questions[index]['image'])),
                 title: Text(questions[index]['name']),
                 subtitle: Text('\age: ${questions[index]['age'].toString()}'),
                 trailing: _buildEditButton(context, index),
