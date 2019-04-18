@@ -19,8 +19,6 @@ class Questions extends StatefulWidget {
       });
     }
     this.Start = DateTime.now().millisecondsSinceEpoch;
-
-    debugPrint('######## ' + this.toString()+ ' start: ');
   }
 
   @override

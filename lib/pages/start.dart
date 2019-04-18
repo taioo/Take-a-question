@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../widgets/ui_elements/button.dart';
 
 class Start extends StatefulWidget {
   @override
@@ -8,9 +9,6 @@ class Start extends StatefulWidget {
 }
 
 class _StartState extends State<Start> {
-  final Map<String, dynamic> _formData = {
-    'acceptTerms': false
-  };
 
   DecorationImage _buildBackgroundImage() {
     return DecorationImage(
@@ -21,7 +19,7 @@ class _StartState extends State<Start> {
     );
   }
 
-  void _submitForm() {
+  void submitForm() {
     Navigator.pushReplacementNamed(context, '/question');
   }
 
@@ -44,11 +42,7 @@ class _StartState extends State<Start> {
               child: Form(
                 child: Column(
                   children: <Widget>[
-                    RaisedButton(
-                      textColor: Colors.white,
-                      child: Text('Accept'),
-                      onPressed: _submitForm,
-                    ),
+                    Button(submitForm),
                   ],
                 ),
               ),
