@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../widgets/ui_elements/button.dart';
+import '../widgets/ui_elements/buttonStart.dart';
 
 class Start extends StatefulWidget {
   @override
@@ -42,7 +42,7 @@ class _StartState extends State<Start> {
               child: Form(
                 child: Column(
                   children: <Widget>[
-                    Button(submitForm),
+                    ButtonStart(submitForm),
                   ],
                 ),
               ),

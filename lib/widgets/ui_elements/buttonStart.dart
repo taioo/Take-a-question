@@ -1,20 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:after_layout/after_layout.dart';
 
-class Button extends StatefulWidget {
+class ButtonStart extends StatefulWidget {
   final Function submitForm;
   int Start = 0;
   int End = 0;
 
-  Button(this.submitForm){
+  ButtonStart(this.submitForm){
     this.Start = DateTime.now().millisecondsSinceEpoch;
   }
 
   @override
-  _ButtonState createState() => _ButtonState();
+  _ButtonStartState createState() => _ButtonStartState();
 }
 
-class _ButtonState extends State<Button> with AfterLayoutMixin<Button> {
+class _ButtonStartState extends State<ButtonStart> with AfterLayoutMixin<ButtonStart> {
   @override
   void afterFirstLayout(BuildContext context) {
    widget.End = DateTime.now().millisecondsSinceEpoch;
