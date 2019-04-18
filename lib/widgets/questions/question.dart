@@ -1,16 +1,26 @@
-import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:after_layout/after_layout.dart';
 import './question_card.dart';
 
-
 class Questions extends StatefulWidget {
   final List<Map<String, dynamic>> questions;
+  int Start= 0;
+  int End= 0;
 
   Questions(this.questions) {
 
-    debugPrint('questions: '+ questions.toString());
-    debugPrint('######## ' + this.toString() + ' start');
+    // mock data
+    for (var i = 0; i < 20; i++) {
+      questions.add({
+        'name': 'test',
+        'description': 'test',
+        'age': 99,
+        'image': null
+      });
+    }
+    this.Start = DateTime.now().millisecondsSinceEpoch;
+
+    debugPrint('######## ' + this.toString()+ ' start: ');
   }
 
   @override
@@ -22,13 +32,8 @@ class _QuestionsState extends State<Questions>
   Widget _buildQuestionList() {
     Widget questionCards;
     if (widget.questions.length > 0) {
-      print(widget.questions.length.toString() +
-          ' in ListView' +
-          this.toString());
-
       questionCards = ListView.builder(
-        itemBuilder: (BuildContext context, int index) =>
-            QuestionCard(widget.questions[index], index),
+        itemBuilder: (BuildContext context, int index) => QuestionCard(widget.questions[index], index),
         itemCount: widget.questions.length,
       );
     } else {
@@ -44,6 +49,7 @@ class _QuestionsState extends State<Questions>
 
   @override
   void afterFirstLayout(BuildContext context) {
-    debugPrint('######## ' + this.toString() + ' end');
+    widget.End = DateTime.now().millisecondsSinceEpoch;
+    debugPrint('######## Item: '+  widget.questions.length.toString() +' in ListView ' + (widget.End - widget.Start).toString()+' millisecond');
   }
 }

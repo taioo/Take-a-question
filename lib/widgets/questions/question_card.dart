@@ -15,7 +15,7 @@ class QuestionCard extends StatelessWidget {
     return Card(
       child: Column(
         children: <Widget>[
-          Image.file(question['image']),
+          if(question['image']!=null) Image.file(question['image']),
           NameDefault(question['name']),
           AgeTag(question['age']),
           DescriptionTag(question['description']),
