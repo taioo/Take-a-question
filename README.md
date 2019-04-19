@@ -29,3 +29,6 @@ flutter run -d all
 ```
 Demo example on a ipad simulator
 ![GIF](demo.gif)
+
+Run Performance test
+flutter drive --target=test_driver/app.dart

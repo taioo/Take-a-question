@@ -6,7 +6,7 @@ class ButtonStart extends StatefulWidget {
   int Start = 0;
   int End = 0;
 
-  ButtonStart(this.submitForm){
+  ButtonStart(this.submitForm) : super(key: Key('ButtonStart')) {
     this.Start = DateTime.now().millisecondsSinceEpoch;
   }
 
@@ -14,21 +14,24 @@ class ButtonStart extends StatefulWidget {
   _ButtonStartState createState() => _ButtonStartState();
 }
 
-class _ButtonStartState extends State<ButtonStart> with AfterLayoutMixin<ButtonStart> {
+class _ButtonStartState extends State<ButtonStart>
+    with AfterLayoutMixin<ButtonStart> {
   @override
   void afterFirstLayout(BuildContext context) {
-   widget.End = DateTime.now().millisecondsSinceEpoch;
-   debugPrint('######## button: ' + (widget.End - widget.Start).toString()+' millisecond');
+    widget.End = DateTime.now().millisecondsSinceEpoch;
+    debugPrint('######## button: ' +
+        (widget.End - widget.Start).toString() +
+        ' millisecond');
   }
 
   @override
   Widget build(BuildContext context) {
-
     return RaisedButton(
-      shape: new RoundedRectangleBorder(borderRadius: new BorderRadius.circular(12.0)),
+      shape: new RoundedRectangleBorder(
+      borderRadius: new BorderRadius.circular(12.0)),
       color: Colors.blue,
       child: Text('Accept'),
-      onPressed: widget.submitForm,
+       onPressed: widget.submitForm,
     );
   }
 }
