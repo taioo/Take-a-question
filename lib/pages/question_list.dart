@@ -9,21 +9,11 @@ class QuestionListPage extends StatelessWidget {
 
   QuestionListPage(this.questions, this.updateQuestion, this.deleteQuestion);
 
-  Widget _buildEditButton(BuildContext context, int index) {
+  Widget _deleteButton(BuildContext context, int index) {
     return IconButton(
-      icon: Icon(Icons.edit),
+      icon: Icon(Icons.delete_forever),
       onPressed: () {
-        Navigator.of(context).push(
-          MaterialPageRoute(
-            builder: (BuildContext context) {
-              return QuestionEditPage(
-                question: questions[index],
-                updateQuestion: updateQuestion,
-                questionIndex: index,
-              );
-            },
-          ),
-        );
+        deleteQuestion(index);
       },
     );
   }
@@ -32,25 +22,14 @@ class QuestionListPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListView.builder(
       itemBuilder: (BuildContext context, int index) {
-        return Dismissible(
-          key: Key(questions[index]['name']),
-          onDismissed: (DismissDirection direction) {
-            // cant delete two same question 
-            deleteQuestion(index);
-          },
-          background: Container(color: Colors.red),
-          child: Column(
-            children: <Widget>[
-              ListTile(
-                leading: CircleAvatar(
-                    backgroundImage: questions[index]['image']== null ? null: FileImage(questions[index]['image'])),
-                title: Text(questions[index]['name']),
-                subtitle: Text('\age: ${questions[index]['age'].toString()}'),
-                trailing: _buildEditButton(context, index),
-              ),
-              Divider()
-            ],
-          ),
+        return ListTile(
+          leading: CircleAvatar(
+              backgroundImage: questions[index]['image'] == null
+                  ? null
+                  : FileImage(questions[index]['image'])),
+          title: Text(questions[index]['name']),
+          subtitle: Text('\age: ${questions[index]['age'].toString()}'),
+          trailing: _deleteButton(context, index),
         );
       },
       itemCount: questions.length,

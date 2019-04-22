@@ -33,7 +33,6 @@ class _TextFormFieldEditCreateState extends State<TextFormFieldEditCreate> with 
 
      return TextFormField(
       decoration: InputDecoration(labelText: widget.text),
-      initialValue: widget.question == null ? '' : widget.question[widget.text].toString(),
       onSaved: (String value) {
         widget.formData[widget.text.toString()] = value;
       },

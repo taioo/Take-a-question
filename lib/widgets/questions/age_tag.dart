@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class AgeTag extends StatelessWidget {
-  final int age;
+  final String age;
 
   AgeTag(this.age);
 

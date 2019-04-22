@@ -24,7 +24,7 @@ class QuestionEditPage extends StatefulWidget {
 class _QuestionEditPageState extends State<QuestionEditPage> {
   final Map<String, dynamic> formData = {
     'name': null,
-    'description': null,
+    'question': null,
     'age': null,
     'image': null,
   };
@@ -34,13 +34,15 @@ class _QuestionEditPageState extends State<QuestionEditPage> {
 
   Widget _buildNameField() {
     return TextFormFieldEditCreate(widget.question, formData, 'name');
+    
   }
 
   Widget _buildQuestionField() {
-    return TextFormFieldEditCreate(widget.question, formData, 'description');
+    return TextFormFieldEditCreate(widget.question, formData, 'question');
   }
 
   Widget _buildAgeField() {
+    print(formData);
     return TextFormFieldEditCreate(widget.question, formData, 'age');
   }
 

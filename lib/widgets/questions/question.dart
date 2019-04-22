@@ -13,8 +13,8 @@ class Questions extends StatefulWidget {
     for (var i = 0; i < 20; i++) {
       questions.add({
         'name': 'test',
-        'description': 'test',
-        'age': 99,
+        'question': 'test',
+        'age': 99.toString(),
         'image': null
       });
     }

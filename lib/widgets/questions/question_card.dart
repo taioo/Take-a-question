@@ -18,7 +18,7 @@ class QuestionCard extends StatelessWidget {
           if(question['image']!=null) Image.file(question['image']),
           NameDefault(question['name']),
           AgeTag(question['age']),
-          DescriptionTag(question['description']),
+          DescriptionTag(question['question']),
         ],
       ),
     );
