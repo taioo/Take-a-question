@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 
 class ButtonStart extends StatefulWidget {
@@ -6,6 +8,7 @@ class ButtonStart extends StatefulWidget {
   int end = 0;
 
   ButtonStart(this.submitForm) : super(key: Key('ButtonStart')) {
+    Timeline.startSync("ButtonStart");
     this.start = DateTime.now().millisecondsSinceEpoch;
   }
 
@@ -23,6 +26,7 @@ class _ButtonStartState extends State<ButtonStart> {
     debugPrint('######## button: ' +
         (widget.end - widget.start).toString() +
         ' millisecond');
+          Timeline.finishSync();
   }
 
   @override
