@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-import './question_edit.dart';
-
 class QuestionListPage extends StatelessWidget {
   final Function updateQuestion;
   final Function deleteQuestion;

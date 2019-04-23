@@ -1,4 +1,4 @@
-import 'dart:io';
+import 'dart:developer';
 
 import 'package:flutter/material.dart';
 // import 'package:flutter/rendering.dart';
@@ -11,7 +11,9 @@ void main() {
   // debugPaintSizeEnabled = true;
   // debugPaintBaselinesEnabled = true;
   // debugPaintPointersEnabled = true;
+  Timeline.startSync("Doing Something");
   runApp(MyApp());
+  Timeline.finishSync();
 }
 
 class MyApp extends StatefulWidget {
