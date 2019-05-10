@@ -5,13 +5,12 @@ import '../widgets/ui_elements/textFormField.dart';
 
 class QuestionEditPage extends StatefulWidget {
   final Function addQuestion;
-  final Function updateQuestion;
+
   final Map<String, dynamic> question;
   final int questionIndex;
 
   QuestionEditPage(
       {this.addQuestion,
-      this.updateQuestion,
       this.question,
       this.questionIndex});
 
@@ -91,11 +90,7 @@ class _QuestionEditPageState extends State<QuestionEditPage> {
     _formKey.currentState.save();
     if (widget.question == null) {
       widget.addQuestion(formData);
-    } else {
-      widget.updateQuestion(widget.questionIndex, formData);
     }
-
-    Navigator.pushReplacementNamed(context, '/question');
   }
 
   @override

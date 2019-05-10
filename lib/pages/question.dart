@@ -11,14 +11,14 @@ class Questions extends StatefulWidget {
   Questions(this.questions) {
     Timeline.startSync("Questions");
     // mock data
-    for (var i = 0; i < 20; i++) {
-      questions.add({
-        'name': 'test',
-        'question': 'test',
-        'age': 99.toString(),
-        'image': null
-      });
-    }
+    // for (var i = 0; i < 20; i++) {
+    //   questions.add({
+    //     'name': 'test',
+    //     'question': 'test',
+    //     'age': 99.toString(),
+    //     'image': null
+    //   });
+    // }
     
     this.start = DateTime.now().millisecondsSinceEpoch;
   }
