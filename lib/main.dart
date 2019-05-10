@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 
 import './pages/start.dart';
 import './pages/questions_all.dart';
-import './pages/questionSidebarPage.dart';
+import './pages/question.dart';
 
 void main() {
   // debugPaintSizeEnabled = true;
@@ -56,14 +56,13 @@ class _MyAppState extends State<MyApp> {
       // home: AuthPage(),
       routes: {
         '/': (BuildContext context) => Start(),
-        '/question': (BuildContext context) => QuestionSidebarPage(_questions),
         '/admin': (BuildContext context) =>
-            QuestionsAdminPage(_addQuestion, _updateQuestion, _deleteQuestion, _questions),
+            QuestionsAdminPage(_addQuestion, _deleteQuestion, _questions),
       },
 
       onUnknownRoute: (RouteSettings settings) {
         return MaterialPageRoute(
-            builder: (BuildContext context) => QuestionSidebarPage(_questions));
+            builder: (BuildContext context) => QuestionsAdminPage(_addQuestion, _deleteQuestion, _questions));
       },
     );
   }

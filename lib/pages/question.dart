@@ -1,7 +1,7 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
-import './question_card.dart';
+import '../widgets/questions/question_card.dart';
 
 class Questions extends StatefulWidget {
   final List<Map<String, dynamic>> questions;

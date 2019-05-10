@@ -1,15 +1,16 @@
+
 import 'package:flutter/material.dart';
 
 import './question_edit.dart';
 import './question_list.dart';
+import './question.dart';
 
 class QuestionsAdminPage extends StatelessWidget {
   final Function addQuestion;
-  final Function updateQuestion;
   final Function deleteQuestion;
   final List<Map<String, dynamic>> questions;
 
-  QuestionsAdminPage(this.addQuestion, this.updateQuestion, this.deleteQuestion, this.questions);
+  QuestionsAdminPage(this.addQuestion, this.deleteQuestion, this.questions);
 
   Widget _buildSideDrawer(BuildContext context) {
     return Drawer(
@@ -18,13 +19,6 @@ class QuestionsAdminPage extends StatelessWidget {
           AppBar(
             automaticallyImplyLeading: false,
             title: Text('Choose'),
-          ),
-          ListTile(
-            leading: Icon(Icons.border_horizontal),
-            title: Text('List all Questions'),
-            onTap: () {
-              Navigator.pushReplacementNamed(context, '/question');
-            },
           ),
           ListTile(
             leading: Icon(Icons.star),
@@ -41,7 +35,7 @@ class QuestionsAdminPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-      length: 2,
+      length: 3,
       child: Scaffold(
         drawer: _buildSideDrawer(context),
         appBar: AppBar(
@@ -53,19 +47,28 @@ class QuestionsAdminPage extends StatelessWidget {
                 text: 'Create Question',
               ),
               Tab(
-                icon: Icon(Icons.list),
+                icon: Icon(Icons.edit),
                 text: 'Edit Questions',
               ),
+              Tab(
+                icon: Icon(Icons.list),
+                text: 'all Questions',
+              )
             ],
           ),
         ),
         body: TabBarView(
           children: <Widget>[
             QuestionEditPage(addQuestion: addQuestion),
-            QuestionListPage(questions, updateQuestion, deleteQuestion)
+            QuestionListPage(questions, deleteQuestion),
+            Questions(questions),
           ],
         ),
       ),
     );
   }
+
+
+
+  
 }
