@@ -31,20 +31,11 @@ class _QuestionEditPageState extends State<QuestionEditPage> {
 
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
-  Widget _buildNameField() {
-    return TextFormFieldEditCreate(widget.question, formData, 'name');
-    
-  }
 
-  Widget _buildQuestionField() {
-    return TextFormFieldEditCreate(widget.question, formData, 'question');
-  }
-
-  Widget _buildAgeField() {
-    print(formData);
-    return TextFormFieldEditCreate(widget.question, formData, 'age');
-  }
-
+void _setText(String label,String text){
+  formData[label] = text;
+  print(this.formData);
+}
   void _setImage(File image) {
     formData['image'] = image;
   }
@@ -64,9 +55,9 @@ class _QuestionEditPageState extends State<QuestionEditPage> {
           child: ListView(
             padding: EdgeInsets.symmetric(horizontal: targetPadding / 2),
             children: <Widget>[
-              _buildNameField(),
-              _buildQuestionField(),
-              _buildAgeField(),
+              TextFormFieldEditCreate(_setText, 'name'),
+              TextFormFieldEditCreate(_setText ,'question'),
+              TextFormFieldEditCreate(_setText, 'age'),
               ImageInput(_setImage),
               SizedBox(
                 height: 10.0,

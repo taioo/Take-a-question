@@ -1,17 +1,13 @@
 import 'package:flutter/material.dart';
 
 class TextFormFieldEditCreate extends StatefulWidget {
-final Map<String, dynamic> question;
-final Map<String, dynamic> formData;
-final String text;
-  int start = 0;
-  int end = 0;
+final Function _setText;
+final String label;
 
 
 
-  TextFormFieldEditCreate(this.question, this.formData, this.text){
-    this.start = DateTime.now().millisecondsSinceEpoch;
-  }
+
+  TextFormFieldEditCreate(this._setText, this.label);
 
   @override
   _TextFormFieldEditCreateState createState() => _TextFormFieldEditCreateState();
@@ -20,22 +16,15 @@ final String text;
 class _TextFormFieldEditCreateState extends State<TextFormFieldEditCreate> {
   
   
-  
-@protected
-@mustCallSuper
-void initState (){
-  super.initState();
-   widget.end = DateTime.now().millisecondsSinceEpoch;
-   debugPrint('######## TextFormField: ' + (widget.end - widget.start).toString()+' millisecond');
-  }
+
 
   @override
   Widget build(BuildContext context) {
 
      return TextFormField(
-      decoration: InputDecoration(labelText: widget.text),
+      decoration: InputDecoration(labelText: widget.label),
       onSaved: (String value) {
-        widget.formData[widget.text.toString()] = value;
+        widget._setText(widget.label , value);
       },
     );
   }
