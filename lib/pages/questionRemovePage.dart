@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-class QuestionListPage extends StatelessWidget {
+class QuestionRemovePage extends StatelessWidget {
 
   final Function deleteQuestion;
   final List<Map<String, dynamic>> questions;
 
-  QuestionListPage(this.questions, this.deleteQuestion);
+  QuestionRemovePage(this.questions, this.deleteQuestion);
 
   Widget _deleteButton(BuildContext context, int index) {
     return IconButton(

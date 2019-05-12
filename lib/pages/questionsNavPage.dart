@@ -1,26 +1,26 @@
 import 'package:flutter/material.dart';
 
-import './question_edit.dart';
-import './question_list.dart';
-import './question.dart';
+import './questionCreatePage.dart';
+import './questionremovePage.dart';
+import './questionViewPage.dart';
 
-class QuestionsAdminPage extends StatefulWidget {
+class QuestionsNavPage extends StatefulWidget {
   final Function addQuestion;
   final Function deleteQuestion;
   final List<Map<String, dynamic>> questions;
 
-  QuestionsAdminPage(this.addQuestion, this.deleteQuestion, this.questions);
+  QuestionsNavPage(this.addQuestion, this.deleteQuestion, this.questions);
 
   @override
   State<StatefulWidget> createState() {
-    return _QuestionsAdminPageState();
+    return _QuestionsNavPageState();
   }
 
 
 
 
 }
-class _QuestionsAdminPageState extends State<QuestionsAdminPage>{
+class _QuestionsNavPageState extends State<QuestionsNavPage>{
 int _selectedIndex = 0;
 
 Widget _buildSideDrawer(BuildContext context) {
@@ -46,9 +46,9 @@ Widget _buildSideDrawer(BuildContext context) {
   @override
   Widget build(BuildContext context) {
     List<Widget> _widgetOptions = <Widget>[
-      QuestionEditPage(addQuestion: widget.addQuestion),
-      QuestionListPage(widget.questions, widget.deleteQuestion),
-      Questions(widget.questions),
+      QuestionCreatePage(addQuestion: widget.addQuestion),
+      QuestionRemovePage(widget.questions, widget.deleteQuestion),
+      QuestionsViewPage(widget.questions),
     ];
 
     void _onItemTapped(int index) {

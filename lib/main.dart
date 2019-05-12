@@ -3,8 +3,7 @@ import 'package:flutter/material.dart';
 // import 'package:flutter/rendering.dart';
 
 import './pages/start.dart';
-import './pages/questions_all.dart';
-import './pages/question.dart';
+import './pages/questionsNavPage.dart';
 
 void main() {
   // debugPaintSizeEnabled = true;
@@ -57,12 +56,12 @@ class _MyAppState extends State<MyApp> {
       routes: {
         '/': (BuildContext context) => Start(),
         '/admin': (BuildContext context) =>
-            QuestionsAdminPage(_addQuestion, _deleteQuestion, _questions),
+            QuestionsNavPage(_addQuestion, _deleteQuestion, _questions),
       },
 
       onUnknownRoute: (RouteSettings settings) {
         return MaterialPageRoute(
-            builder: (BuildContext context) => QuestionsAdminPage(_addQuestion, _deleteQuestion, _questions));
+            builder: (BuildContext context) => QuestionsNavPage(_addQuestion, _deleteQuestion, _questions));
       },
     );
   }

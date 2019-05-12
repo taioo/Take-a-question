@@ -3,24 +3,24 @@ import 'dart:io';
 import '../widgets/questions/image.dart';
 import '../widgets/ui_elements/textFormField.dart';
 
-class QuestionEditPage extends StatefulWidget {
+class QuestionCreatePage extends StatefulWidget {
   final Function addQuestion;
 
   final Map<String, dynamic> question;
   final int questionIndex;
 
-  QuestionEditPage(
+  QuestionCreatePage(
       {this.addQuestion,
       this.question,
       this.questionIndex});
 
   @override
   State<StatefulWidget> createState() {
-    return _QuestionEditPageState();
+    return _QuestionCreatePageState();
   }
 }
 
-class _QuestionEditPageState extends State<QuestionEditPage> {
+class _QuestionCreatePageState extends State<QuestionCreatePage> {
   final Map<String, dynamic> formData = {
     'name': null,
     'question': null,
@@ -91,7 +91,7 @@ void _setText(String label,String text){
         ? pageContent
         : Scaffold(
             appBar: AppBar(
-              title: Text('Edit Question'),
+              title: Text('Create Question'),
             ),
             body: pageContent,
           );

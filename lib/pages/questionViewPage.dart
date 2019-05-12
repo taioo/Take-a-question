@@ -3,12 +3,12 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import '../widgets/questions/question_card.dart';
 
-class Questions extends StatefulWidget {
+class QuestionsViewPage extends StatefulWidget {
   final List<Map<String, dynamic>> questions;
   var start = 0;
   var end = 0;
 
-  Questions(this.questions) {
+  QuestionsViewPage(this.questions) {
     Timeline.startSync("Questions");
     // mock data
     // for (var i = 0; i < 20; i++) {
@@ -24,10 +24,10 @@ class Questions extends StatefulWidget {
   }
 
   @override
-  _QuestionsState createState() => _QuestionsState();
+  _QuestionsViewPageState createState() => _QuestionsViewPageState();
 }
 
-class _QuestionsState extends State<Questions> {
+class _QuestionsViewPageState extends State<QuestionsViewPage> {
   Widget _buildQuestionList() {
     Widget questionCards;
     if (widget.questions.length > 0) {
