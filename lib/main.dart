@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 // import 'package:flutter/rendering.dart';
 
-import './pages/start.dart';
+import './pages/startPage.dart';
 import './pages/questionsNavPage.dart';
 
 void main() {
@@ -54,7 +54,7 @@ class _MyAppState extends State<MyApp> {
           buttonColor: Colors.red),
       // home: AuthPage(),
       routes: {
-        '/': (BuildContext context) => Start(),
+        '/': (BuildContext context) => StartPage(),
         '/admin': (BuildContext context) =>
             QuestionsNavPage(_addQuestion, _deleteQuestion, _questions),
       },

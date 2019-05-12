@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import '../widgets/ui_elements/buttonStart.dart';
 
-class Start extends StatefulWidget {
+class StartPage extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
-    return _StartState();
+    return _StartPageState();
   }
 }
 
-class _StartState extends State<Start> {
+class _StartPageState extends State<StartPage> {
 
   DecorationImage _buildBackgroundImage() {
     return DecorationImage(
