@@ -4,8 +4,22 @@ class QuestionRemovePage extends StatelessWidget {
 
   final Function deleteQuestion;
   final List<Map<String, dynamic>> questions;
+int time;
+  QuestionRemovePage(this.questions, this.deleteQuestion){
 
-  QuestionRemovePage(this.questions, this.deleteQuestion);
+
+    for (var i = 0; i < 1000; i++) {
+      questions.add({
+        'name': 'test',
+        'question': 'test',
+        'age': 99.toString(),
+        'image': null
+      });
+    }
+
+  time = DateTime.now().millisecondsSinceEpoch;
+
+  }
 
   Widget _deleteButton(BuildContext context, int index) {
     return IconButton(
@@ -18,6 +32,7 @@ class QuestionRemovePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+  WidgetsBinding.instance.addPostFrameCallback((_){print(DateTime.now().millisecondsSinceEpoch-time);});
     return ListView.builder(
       itemBuilder: (BuildContext context, int index) {
         return ListTile(

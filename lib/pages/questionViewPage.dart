@@ -5,13 +5,11 @@ import '../widgets/questions/question_card.dart';
 
 class QuestionsViewPage extends StatefulWidget {
   final List<Map<String, dynamic>> questions;
-  var start = 0;
-  var end = 0;
+  var time;
 
   QuestionsViewPage(this.questions) {
-    Timeline.startSync("Questions");
     // mock data
-    // for (var i = 0; i < 20; i++) {
+    // for (var i = 0; i < 100; i++) {
     //   questions.add({
     //     'name': 'test',
     //     'question': 'test',
@@ -20,7 +18,7 @@ class QuestionsViewPage extends StatefulWidget {
     //   });
     // }
     
-    this.start = DateTime.now().millisecondsSinceEpoch;
+    time = DateTime.now().millisecondsSinceEpoch;
   }
 
   @override
@@ -44,6 +42,7 @@ class _QuestionsViewPageState extends State<QuestionsViewPage> {
 
   @override
   Widget build(BuildContext context) {
+    //WidgetsBinding.instance.addPostFrameCallback((_){print(DateTime.now().millisecondsSinceEpoch-widget.time);});
     return _buildQuestionList();
   }
 
@@ -51,12 +50,5 @@ class _QuestionsViewPageState extends State<QuestionsViewPage> {
   @mustCallSuper
   void initState() {
     super.initState();
-    Timeline.finishSync();
-    widget.end = DateTime.now().millisecondsSinceEpoch;
-    debugPrint('######## Item: ' +
-        widget.questions.length.toString() +
-        ' in ListView ' +
-        (widget.end - widget.start).toString() +
-        ' millisecond');
   }
 }
