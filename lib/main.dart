@@ -1,17 +1,15 @@
-
 import 'package:flutter/material.dart';
 // import 'package:flutter/rendering.dart';
 
-import './pages/startPage.dart';
-import './pages/questionsNavPage.dart';
+import './pages/start.dart';
+import './pages/questions_all.dart';
+import './pages/questionSidebarPage.dart';
 
 void main() {
   // debugPaintSizeEnabled = true;
   // debugPaintBaselinesEnabled = true;
   // debugPaintPointersEnabled = true;
-
   runApp(MyApp());
-
 }
 
 class MyApp extends StatefulWidget {
@@ -28,6 +26,7 @@ class _MyAppState extends State<MyApp> {
     setState(() {
       _questions.add(question);
     });
+    print(_questions);
   }
 
   void _updateQuestion(int index, Map<String, dynamic> question) {
@@ -44,7 +43,6 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-
     return MaterialApp(
       // debugShowMaterialGrid: true,
       theme: ThemeData(
@@ -54,14 +52,15 @@ class _MyAppState extends State<MyApp> {
           buttonColor: Colors.red),
       // home: AuthPage(),
       routes: {
-        '/': (BuildContext context) => StartPage(),
+        '/': (BuildContext context) => Start(),
+        '/question': (BuildContext context) => QuestionSidebarPage(_questions),
         '/admin': (BuildContext context) =>
-            QuestionsNavPage(_addQuestion, _deleteQuestion, _questions),
+            QuestionsAdminPage(_addQuestion, _updateQuestion, _deleteQuestion, _questions),
       },
 
       onUnknownRoute: (RouteSettings settings) {
         return MaterialPageRoute(
-            builder: (BuildContext context) => QuestionsNavPage(_addQuestion, _deleteQuestion, _questions));
+            builder: (BuildContext context) => QuestionSidebarPage(_questions));
       },
     );
   }

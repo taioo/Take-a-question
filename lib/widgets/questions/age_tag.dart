@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class AgeTag extends StatelessWidget {
-  final String age;
+  final int age;
 
   AgeTag(this.age);
 
@@ -13,9 +13,8 @@ class AgeTag extends StatelessWidget {
           color: Theme.of(context).accentColor,
           borderRadius: BorderRadius.circular(5.0)),
       child: Text(
-        age.toString(),
-        style: TextStyle(
-            fontSize: 30.0, fontWeight: FontWeight.bold, fontFamily: 'Oswald'),
+        '\Age: $age',
+        style: TextStyle(color: Colors.white),
       ),
     );
   }

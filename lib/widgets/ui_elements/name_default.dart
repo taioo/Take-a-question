@@ -7,15 +7,19 @@ class NameDefault extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    
+
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 5),
       decoration: BoxDecoration(
-          color: Colors.redAccent, 
+          color: Colors.redAccent,
           borderRadius: BorderRadius.circular(5.0)),
-      child: Text(
+      
+      child:
+      Text(
         name,
         style: TextStyle(
-            fontSize: 30.0, fontWeight: FontWeight.bold, fontFamily: 'Oswald'),
+          fontSize: 30.0, fontWeight: FontWeight.bold, fontFamily: 'Oswald'),
       ),
     );
   }

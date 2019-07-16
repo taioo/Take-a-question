@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
 class DescriptionTag extends StatelessWidget {
-  final String question;
+  final String description;
 
-  DescriptionTag(this.question);
+  DescriptionTag(this.description);
 
   @override
   Widget build(BuildContext context) {
@@ -13,9 +13,9 @@ class DescriptionTag extends StatelessWidget {
           color: Colors.lightGreenAccent,
           borderRadius: BorderRadius.circular(5.0)),
       child: Text(
-        question,
+        '$description ?',
         style: TextStyle(
-            fontSize: 30.0, fontWeight: FontWeight.bold, fontFamily: 'Oswald'),
+          fontSize: 20.0, fontWeight: FontWeight.bold, fontFamily: 'Oswald'),
       ),
     );
   }

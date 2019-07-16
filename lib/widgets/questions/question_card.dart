@@ -7,27 +7,34 @@ import '../ui_elements/name_default.dart';
 class QuestionCard extends StatelessWidget {
   final Map<String, dynamic> question;
   final int questionIndex;
-int time = 0;
 
-  QuestionCard(this.question, this.questionIndex){
+  QuestionCard(this.question, this.questionIndex);
 
-    //time = DateTime.now().millisecondsSinceEpoch;
-
+  Widget _buildTitleageRow() {
+    return Container(
+      padding: EdgeInsets.only(top: 10.0),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          NameDefault(question['name']),
+          SizedBox(
+            width: 8.0,
+          ),
+          AgeTag(question['age']),
+          
+        ],
+      ),
+    );
   }
 
-
-
   @override
-  
   Widget build(BuildContext context) {
-    //WidgetsBinding.instance.addPostFrameCallback((_){print(DateTime.now().millisecondsSinceEpoch-time);});
     return Card(
       child: Column(
         children: <Widget>[
-          question['image']!=null? Image.file(question['image']):SizedBox.shrink(),
-          NameDefault(question['name']),
-          AgeTag(question['age']),
-          DescriptionTag(question['question']),
+          Image.file(question['image']),
+          _buildTitleageRow(),
+          DescriptionTag(question['description']),
         ],
       ),
     );

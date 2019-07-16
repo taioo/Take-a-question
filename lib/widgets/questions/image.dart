@@ -19,7 +19,7 @@ class _ImageInputState extends State<ImageInput> {
   File _imageFile;
 
   void _getImage(BuildContext context, ImageSource source) {
-    ImagePicker.pickImage(source: source, maxWidth: 400.0).then((var image) {
+    ImagePicker.pickImage(source: source, maxWidth: 400.0).then((File image) {
       setState(() {
         _imageFile = image;
       });
