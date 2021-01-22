@@ -1,19 +1,6 @@
-# app_flutter
+# Take-a-question
 
-A new Flutter project.
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.io/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.io/docs/cookbook)
-
-For help getting started with Flutter, view our 
-[online documentation](https://flutter.io/docs), which offers tutorials, 
-samples, guidance on mobile development, and a full API reference.
+This is a mobile application developt with flutter framework. This app is intended for TV or Radio broadcast to save questions from the Pulicum and to answer all of them later. Without disturbing the television program.
 
 On mac start Simulator
 ```
@@ -23,7 +10,7 @@ to run
 ```
 flutter run
 ````
-for all devices
+run in all devices
 ```
 flutter run -d all
 ```
