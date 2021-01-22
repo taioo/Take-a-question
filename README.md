@@ -14,8 +14,9 @@ run in all devices
 ```
 flutter run -d all
 ```
-Demo example on a ipad simulator
-![GIF](demo.gif)
+<br>
+<br>
+<br>
 
-Run Performance test
-flutter drive --target=test_driver/app.dart
+## Preview on a ipad simulator
+![GIF](demo.gif)
